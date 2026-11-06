@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>關西日本茶文化與商務考察 6日行程網頁App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Serif JP / Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        matcha: {
+                            50: '#f4f7f4',
+                            100: '#e3eae3',
+                            500: '#4a6b5d',
+                            700: '#2d4a3e',
+                            800: '#21382f',
+                            900: '#1b2e25',
+                        },
+                        gold: {
+                            400: '#e6c875',
+                            500: '#d4af37',
+                            600: '#aa8822',
+                        },
+                        washi: '#fdfbf7',
+                        cardDark: '#23332b'
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1b2e25;
+            color: #fdfbf7;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .washi-pattern {
+            background-color: #21382f;
+            background-image: radial-gradient(#2d4a3e 0.75px, transparent 0.75px);
+            background-size: 12px 12px;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa8822 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-between max-w-md mx-auto relative shadow-2xl overflow-hidden bg-matcha-900">
+
+    <!-- Top Sticky Header -->
+    <header class="bg-matcha-900/95 backdrop-blur-md border-b border-matcha-700/50 px-4 py-3 sticky top-0 z-40 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-full bg-gold-500/20 border border-gold-500/50 flex items-center justify-center text-gold-400 font-serif font-bold text-sm">
+                茶
+            </div>
+            <div>
+                <h1 class="text-sm font-bold tracking-wide font-serif text-gold-400">關西日本茶文化與商務考察</h1>
+                <p class="text-[10px] text-matcha-100/70">2026.12.12 - 12.17 (6日高階主管考察)</p>
+            </div>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/30">
+            6位貴賓包車
+        </span>
+    </header>
+
+    <!-- Main Content Body (Scrollable) -->
+    <main id="main-content" class="flex-1 overflow-y-auto hide-scrollbar p-4 pb-24 WasHi-pattern">
+
+        <!-- ================= TAB 1: 每日行程 (ITINERARY) ================= -->
+        <section id="tab-itinerary" class="tab-content space-y-4">
+            
+            <!-- Day Selector Horizontal Scroll -->
+            <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-2 pt-1">
+                <button onclick="switchDay(1)" id="day-btn-1" class="day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-gold-500 text-matcha-900 shadow-md">
+                    <span>DAY 1</span>
+                    <span class="text-[10px] font-normal">12/12 (五)</span>
+                </button>
+                <button onclick="switchDay(2)" id="day-btn-2" class="day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-matcha-800 text-matcha-100 border border-matcha-700">
+                    <span>DAY 2</span>
+                    <span class="text-[10px] opacity-70">12/13 (六)</span>
+                </button>
+                <button onclick="switchDay(3)" id="day-btn-3" class="day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-matcha-800 text-matcha-100 border border-matcha-700">
+                    <span>DAY 3</span>
+                    <span class="text-[10px] opacity-70">12/14 (日)</span>
+                </button>
+                <button onclick="switchDay(4)" id="day-btn-4" class="day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-matcha-800 text-matcha-100 border border-matcha-700">
+                    <span>DAY 4</span>
+                    <span class="text-[10px] opacity-70">12/15 (一)</span>
+                </button>
+                <button onclick="switchDay(5)" id="day-btn-5" class="day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-matcha-800 text-matcha-100 border border-matcha-700">
+                    <span>DAY 5</span>
+                    <span class="text-[10px] opacity-70">12/16 (二)</span>
+                </button>
+                <button onclick="switchDay(6)" id="day-btn-6" class="day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-matcha-800 text-matcha-100 border border-matcha-700">
+                    <span>DAY 6</span>
+                    <span class="text-[10px] opacity-70">12/17 (三)</span>
+                </button>
+            </div>
+
+            <!-- Tag Filter Pill Bar -->
+            <div class="flex items-center space-x-1.5 overflow-x-auto hide-scrollbar text-[11px] py-1">
+                <span class="text-matcha-100/50 flex-shrink-0 mr-1"><i class="fa-solid fa-filter text-xs"></i> 篩選:</span>
+                <button onclick="filterTags('ALL')" class="tag-btn bg-gold-500/20 text-gold-400 border border-gold-500/40 px-2.5 py-0.5 rounded-full font-medium">全部</button>
+                <button onclick="filterTags('B2B')" class="tag-btn bg-matcha-800 text-matcha-100/70 border border-matcha-700 px-2.5 py-0.5 rounded-full">B2B產線</button>
+                <button onclick="filterTags('NPD')" class="tag-btn bg-matcha-800 text-matcha-100/70 border border-matcha-700 px-2.5 py-0.5 rounded-full">NPD研發</button>
+                <button onclick="filterTags('感官')" class="tag-btn bg-matcha-800 text-matcha-100/70 border border-matcha-700 px-2.5 py-0.5 rounded-full">感官品評</button>
+                <button onclick="filterTags('零售')" class="tag-btn bg-matcha-800 text-matcha-100/70 border border-matcha-700 px-2.5 py-0.5 rounded-full">零售動線</button>
+                <button onclick="filterTags('包裝')" class="tag-btn bg-matcha-800 text-matcha-100/70 border border-matcha-700 px-2.5 py-0.5 rounded-full">包材器具</button>
+            </div>
+
+            <!-- Dynamic Itinerary List Header Container -->
+            <div id="day-summary-banner" class="bg-matcha-800/80 border border-matcha-700/60 rounded-2xl p-3.5 flex items-center justify-between">
+                <div>
+                    <h2 id="day-title" class="text-sm font-bold text-gold-400 font-serif">DAY 1 抵達京都與現代茶會</h2>
+                    <p id="day-subtitle" class="text-xs text-matcha-100/80 mt-0.5">關西機場 ➔ HARUKA 直達京都 ➔ 選品與現代茶會</p>
+                </div>
+                <div id="day-trans-badge" class="px-2.5 py-1 bg-matcha-700 text-matcha-100 text-[11px] rounded-lg border border-matcha-600/50 flex items-center gap-1">
+                    <i class="fa-solid fa-train"></i> HARUKA
+                </div>
+            </div>
+
+            <!-- Timeline Items Container -->
+            <div id="timeline-container" class="space-y-3 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-matcha-700/50">
+                <!-- Timeline items will be populated via JS -->
+            </div>
+
+        </section>
+
+
+        <!-- ================= TAB 2: 交通包車 (TRANSPORT) ================= -->
+        <section id="tab-transport" class="tab-content hidden space-y-4">
+            <div class="bg-matcha-800/80 border border-matcha-700 rounded-2xl p-4 space-y-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-van-shuttle"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base font-bold text-gold-400">專屬商務包車 (D2 - D5)</h2>
+                        <p class="text-xs text-matcha-100/70">Toyota Alphard / HiAce 頂級商務車款</p>
+                    </div>
+                </div>
+                <p class="text-xs text-matcha-100/80 leading-relaxed pt-1 border-t border-matcha-700/60">
+                    全程配置專業雙語司機，靈活因應產區與跨市商務拜訪需求。包含車資、司機小費、油費、過路費與停車費。
+                </p>
+            </div>
+
+            <!-- Transportation Segments Breakdown -->
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold text-gold-400/90 tracking-wider uppercase flex items-center gap-1.5">
+                    <i class="fa-solid fa-route"></i> 各段交通明細
+                </h3>
+
+                <!-- Seg 1 -->
+                <div class="bg-matcha-800/50 border border-matcha-700/50 rounded-xl p-3 flex items-start justify-between">
+                    <div class="space-y-1">
+                        <span class="text-[10px] px-2 py-0.5 bg-matcha-700 rounded text-matcha-100">Day 1</span>
+                        <h4 class="text-xs font-bold text-matcha-50">關西機場 ➔ 京都車站</h4>
+                        <p class="text-[11px] text-matcha-100/70"><i class="fa-solid fa-train text-gold-500/80 mr-1"></i>JR 特急 HARUKA（車程約 80 分鐘）</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-gold-400">¥3,600</span>
+                        <span class="block text-[10px] text-matcha-100/60">/人 (指定席)</span>
+                    </div>
+                </div>
+
+                <!-- Seg 2 -->
+                <div class="bg-matcha-800/50 border border-matcha-700/50 rounded-xl p-3 flex items-start justify-between">
+                    <div class="space-y-1">
+                        <span class="text-[10px] px-2 py-0.5 bg-gold-500/20 text-gold-400 rounded">Day 2 - Day 5</span>
+                        <h4 class="text-xs font-bold text-matcha-50">京都/和束町/宇治/大阪 全程包車</h4>
+                        <p class="text-[11px] text-matcha-100/70"><i class="fa-solid fa-car text-gold-500/80 mr-1"></i>專屬 Alphard / HiAce (每日 9-10 小時)</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-gold-400">¥75,000 ~ 95,000</span>
+                        <span class="block text-[10px] text-matcha-100/60">/天 (全團計)</span>
+                    </div>
+                </div>
+
+                <!-- Seg 3 -->
+                <div class="bg-matcha-800/50 border border-matcha-700/50 rounded-xl p-3 flex items-start justify-between">
+                    <div class="space-y-1">
+                        <span class="text-[10px] px-2 py-0.5 bg-matcha-700 rounded text-matcha-100">Day 6</span>
+                        <h4 class="text-xs font-bold text-matcha-50">大阪難波 ➔ 關西機場</h4>
+                        <p class="text-[11px] text-matcha-100/70"><i class="fa-solid fa-train-subway text-gold-500/80 mr-1"></i>南海電鐵 Rapi:t 特急（車程約 38 分鐘）</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-gold-400">¥1,450</span>
+                        <span class="block text-[10px] text-matcha-100/60">/人 (指定席)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Van Rules / Contact Notes -->
+            <div class="bg-gold-500/10 border border-gold-500/30 rounded-xl p-3.5 space-y-2">
+                <h4 class="text-xs font-bold text-gold-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-info"></i> 包車商務注意事項
+                </h4>
+                <ul class="text-[11px] text-matcha-100/80 space-y-1 list-disc list-inside">
+                    <li>日本法規司機每日工作上限為 10 小時（超時需支付追加夜間加成）。</li>
+                    <li>車上準備高容量儲能電源與全車 Wi-Fi，方便主管商務會談與電子設備充電。</li>
+                    <li>採購樣品與包材可在包車後備箱保管，減少人員隨身負擔。</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 3: 住宿資訊 (HOTELS) ================= -->
+        <section id="tab-hotels" class="tab-content hidden space-y-4">
+            <h3 class="text-xs font-bold text-gold-400/90 tracking-wider uppercase flex items-center gap-1.5">
+                <i class="fa-solid fa-hotel"></i> 6天5夜 住宿規劃
+            </h3>
+
+            <!-- Hotel 1 -->
+            <div class="bg-matcha-800/80 border border-matcha-700 rounded-2xl p-4 space-y-3 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gold-500 text-matcha-900 font-bold text-[10px] px-3 py-1 rounded-bl-xl">
+                    Day 1 - Day 4 (4晚)
+                </div>
+                <div>
+                    <span class="text-[10px] text-gold-400 font-semibold tracking-wide">KYOTO HOTEL</span>
+                    <h4 class="text-base font-bold text-matcha-50">京都千飯店 (The Thousand Kyoto)</h4>
+                    <p class="text-xs text-matcha-100/70">或同級奢華飯店 (京都車站東口步行 2 分鐘)</p>
+                </div>
+
+                <div class="space-y-1.5 text-xs text-matcha-100/80">
+                    <p class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-gold-400 mt-0.5"></i>
+                        <span>〒600-8216 京都府京都市下京区東塩小路町570</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-gold-400"></i>
+                        <span>+81 75-354-1000</span>
+                    </p>
+                </div>
+
+                <div class="pt-2 border-t border-matcha-700/60 flex items-center justify-between">
+                    <span class="text-[11px] text-matcha-100/70">優勢：極致禪意設計，附設 #13 TEA AND BAR</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=The+Thousand+Kyoto" target="_blank" class="px-3 py-1.5 bg-gold-500 text-matcha-900 rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-diamond-turn-right"></i> 導航
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="bg-matcha-800/80 border border-matcha-700 rounded-2xl p-4 space-y-3 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gold-500 text-matcha-900 font-bold text-[10px] px-3 py-1 rounded-bl-xl">
+                    Day 5 (1晚)
+                </div>
+                <div>
+                    <span class="text-[10px] text-gold-400 font-semibold tracking-wide">OSAKA HOTEL</span>
+                    <h4 class="text-base font-bold text-matcha-50">大阪南海輝盛庭高級國際公寓 / 南海瑞士飯店</h4>
+                    <p class="text-xs text-matcha-100/70">Swissôtel Nankai Osaka / Fraser Residence (難波站直通)</p>
+                </div>
+
+                <div class="space-y-1.5 text-xs text-matcha-100/80">
+                    <p class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-gold-400 mt-0.5"></i>
+                        <span>〒542-0076 大阪府大阪市中央区難波5-1-60</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-gold-400"></i>
+                        <span>+81 6-6696-1111</span>
+                    </p>
+                </div>
+
+                <div class="pt-2 border-t border-matcha-700/60 flex items-center justify-between">
+                    <span class="text-[11px] text-matcha-100/70">優勢：道具屋筋商圈旁，直通 Rapi:t 直達機場</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Swissotel+Nankai+Osaka" target="_blank" class="px-3 py-1.5 bg-gold-500 text-matcha-900 rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-diamond-turn-right"></i> 導航
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 4: 行前準備 (CHECKLIST) ================= -->
+        <section id="tab-checklist" class="tab-content hidden space-y-4">
+            <!-- Practical Info Cards -->
+            <div class="grid grid-cols-2 gap-2.5">
+                <div class="bg-matcha-800/80 border border-matcha-700 p-3 rounded-xl">
+                    <i class="fa-solid fa-wifi text-gold-400 text-base mb-1"></i>
+                    <h4 class="text-xs font-bold text-matcha-50">網路與通訊</h4>
+                    <p class="text-[10px] text-matcha-100/70 mt-0.5">建議高階主管配置 Softbank 獨立原生卡或 eSIM，無限流量。</p>
+                </div>
+                <div class="bg-matcha-800/80 border border-matcha-700 p-3 rounded-xl">
+                    <i class="fa-solid fa-wallet text-gold-400 text-base mb-1"></i>
+                    <h4 class="text-xs font-bold text-matcha-50">日圓換匯</h4>
+                    <p class="text-[10px] text-matcha-100/70 mt-0.5">預備全團約 15 萬日圓現金（傳統老舖/道具屋筋採購使用）。</p>
+                </div>
+                <div class="bg-matcha-800/80 border border-matcha-700 p-3 rounded-xl">
+                    <i class="fa-solid fa-cloud-sun text-gold-400 text-base mb-1"></i>
+                    <h4 class="text-xs font-bold text-matcha-50">12月天氣穿搭</h4>
+                    <p class="text-[10px] text-matcha-100/70 mt-0.5">氣溫約 3°C - 12°C。室內暖氣強，建議洋蔥式穿搭與防風大衣。</p>
+                </div>
+                <div class="bg-matcha-800/80 border border-matcha-700 p-3 rounded-xl">
+                    <i class="fa-solid fa-shield-halved text-gold-400 text-base mb-1"></i>
+                    <h4 class="text-xs font-bold text-matcha-50">商務保險</h4>
+                    <p class="text-[10px] text-matcha-100/70 mt-0.5">已確認投保海外突發醫療與班機延誤綜合商務保險。</p>
+                </div>
+            </div>
+
+            <!-- Interactive Checklist -->
+            <div class="bg-matcha-800/80 border border-matcha-700 rounded-2xl p-4 space-y-3">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-bold text-gold-400 tracking-wide uppercase flex items-center gap-1.5">
+                        <i class="fa-solid fa-list-check"></i> 出發前必備清單
+                    </h3>
+                    <span id="checklist-progress" class="text-[10px] bg-matcha-700 text-gold-400 px-2 py-0.5 rounded-full font-bold">0/6 完成</span>
+                </div>
+
+                <div class="space-y-2 text-xs" id="checklist-container">
+                    <label class="flex items-center space-x-2.5 p-2 bg-matcha-900/50 rounded-xl border border-matcha-700/50 cursor-pointer">
+                        <input type="checkbox" onchange="updateChecklist()" class="rounded border-matcha-600 text-gold-500 focus:ring-0 h-4 w-4 bg-matcha-800">
+                        <span class="text-matcha-100">護照（有效期6個月以上）與 Visit Japan Web 填寫</span>
+                    </label>
+                    <label class="flex items-center space-x-2.5 p-2 bg-matcha-900/50 rounded-xl border border-matcha-700/50 cursor-pointer">
+                        <input type="checkbox" onchange="updateChecklist()" class="rounded border-matcha-600 text-gold-500 focus:ring-0 h-4 w-4 bg-matcha-800">
+                        <span class="text-matcha-100">日幣現金、公司商務信用卡（需開通海外刷卡）</span>
+                    </label>
+                    <label class="flex items-center space-x-2.5 p-2 bg-matcha-900/50 rounded-xl border border-matcha-700/50 cursor-pointer">
+                        <input type="checkbox" onchange="updateChecklist()" class="rounded border-matcha-600 text-gold-500 focus:ring-0 h-4 w-4 bg-matcha-800">
+                        <span class="text-matcha-100">名片（至少每人 50 張）與公司簡介/NPD需求簡報</span>
+                    </label>
+                    <label class="flex items-center space-x-2.5 p-2 bg-matcha-900/50 rounded-xl border border-matcha-700/50 cursor-pointer">
+                        <input type="checkbox" onchange="updateChecklist()" class="rounded border-matcha-600 text-gold-500 focus:ring-0 h-4 w-4 bg-matcha-800">
+                        <span class="text-matcha-100">商務便鞋（產線見學需頻繁穿脫鞋）</span>
+                    </label>
+                    <label class="flex items-center space-x-2.5 p-2 bg-matcha-900/50 rounded-xl border border-matcha-700/50 cursor-pointer">
+                        <input type="checkbox" onchange="updateChecklist()" class="rounded border-matcha-600 text-gold-500 focus:ring-0 h-4 w-4 bg-matcha-800">
+                        <span class="text-matcha-100">樣品採集密封袋與標籤貼紙（NPD採樣用）</span>
+                    </label>
+                    <label class="flex items-center space-x-2.5 p-2 bg-matcha-900/50 rounded-xl border border-matcha-700/50 cursor-pointer">
+                        <input type="checkbox" onchange="updateChecklist()" class="rounded border-matcha-600 text-gold-500 focus:ring-0 h-4 w-4 bg-matcha-800">
+                        <span class="text-matcha-100">電子產品變壓器/三轉二插頭及行動電源</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 5: 預估費用 (BUDGET) ================= -->
+        <section id="tab-budget" class="tab-content hidden space-y-4">
+            <!-- Budget Overview Card -->
+            <div class="bg-gradient-to-br from-matcha-800 via-matcha-800 to-matcha-900 border border-gold-500/40 rounded-2xl p-4 space-y-3 relative overflow-hidden gold-border-glow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-[10px] text-gold-400 font-bold uppercase tracking-wider">Company Funded Budget</span>
+                        <h2 class="text-lg font-bold text-matcha-50">商務考察預算預估</h2>
+                    </div>
+                    <span class="px-2.5 py-1 bg-gold-500/20 text-gold-400 rounded-lg text-xs font-bold border border-gold-500/30">
+                        公司全額支付
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2 border-t border-matcha-700/60">
+                    <div>
+                        <span class="text-[10px] text-matcha-100/70">每位主管預估費用</span>
+                        <p class="text-lg font-bold text-gold-400">¥250,000 ~ 350,000</p>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-matcha-100/70">全團 (6位) 總預估</span>
+                        <p class="text-lg font-bold text-gold-400">¥1,500,000+</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expense Items Table Breakdown -->
+            <div class="bg-matcha-800/80 border border-matcha-700 rounded-2xl p-4 space-y-3">
+                <h3 class="text-xs font-bold text-gold-400 tracking-wide uppercase flex items-center gap-1.5">
+                    <i class="fa-solid fa-calculator"></i> 預算細目估算表
+                </h3>
+
+                <div class="space-y-2.5 text-xs">
+                    <div class="flex justify-between items-center py-1.5 border-b border-matcha-700/50">
+                        <span class="text-matcha-100">專屬商務包車 (4天全含)</span>
+                        <span class="font-bold text-gold-400">約 ¥320,000 - 380,000</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1.5 border-b border-matcha-700/50">
+                        <span class="text-matcha-100">HARUKA + 南海電鐵特急 (6人)</span>
+                        <span class="font-bold text-gold-400">約 ¥30,300</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1.5 border-b border-matcha-700/50">
+                        <span class="text-matcha-100">5晚高階飯店住宿 (3間雙床房)</span>
+                        <span class="font-bold text-gold-400">約 ¥600,000 - 800,000</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1.5 border-b border-matcha-700/50">
+                        <span class="text-matcha-100">茶道場包場/茶園見學費</span>
+                        <span class="font-bold text-gold-400">約 ¥120,000</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1.5 border-b border-matcha-700/50">
+                        <span class="text-matcha-100">精緻京懷石/茶餐/晚宴</span>
+                        <span class="font-bold text-gold-400">約 ¥500,000</span>
+                    </div>
+                </div>
+
+                <p class="text-[10px] text-matcha-100/60 pt-1">
+                    * 以上不含來回商務艙機票與包材打樣採購預算。
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Sticky Navigation Bar (5 Tabs) -->
+    <nav class="bg-matcha-900/95 backdrop-blur-lg border-t border-matcha-700/60 fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50">
+        <div class="grid grid-cols-5 h-16">
+            <button onclick="switchTab('itinerary')" id="nav-itinerary" class="nav-btn flex flex-col items-center justify-center space-y-1 text-gold-400 font-semibold">
+                <i class="fa-solid fa-calendar-days text-base"></i>
+                <span class="text-[10px]">每日行程</span>
+            </button>
+            <button onclick="switchTab('transport')" id="nav-transport" class="nav-btn flex flex-col items-center justify-center space-y-1 text-matcha-100/60 hover:text-matcha-100">
+                <i class="fa-solid fa-van-shuttle text-base"></i>
+                <span class="text-[10px]">交通包車</span>
+            </button>
+            <button onclick="switchTab('hotels')" id="nav-hotels" class="nav-btn flex flex-col items-center justify-center space-y-1 text-matcha-100/60 hover:text-matcha-100">
+                <i class="fa-solid fa-hotel text-base"></i>
+                <span class="text-[10px]">住宿資訊</span>
+            </button>
+            <button onclick="switchTab('checklist')" id="nav-checklist" class="nav-btn flex flex-col items-center justify-center space-y-1 text-matcha-100/60 hover:text-matcha-100">
+                <i class="fa-solid fa-clipboard-check text-base"></i>
+                <span class="text-[10px]">行前準備</span>
+            </button>
+            <button onclick="switchTab('budget')" id="nav-budget" class="nav-btn flex flex-col items-center justify-center space-y-1 text-matcha-100/60 hover:text-matcha-100">
+                <i class="fa-solid fa-coins text-base"></i>
+                <span class="text-[10px]">預估費用</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- JavaScript Data and Interaction Logic -->
+    <script>
+        // Data Structure for Day 1 - Day 6
+        const itineraryData = {
+            1: {
+                title: "DAY 1 抵達京都與現代茶會",
+                subtitle: "關西機場 ➔ HARUKA 直達京都 ➔ 選品與現代茶會",
+                trans: "<i class='fa-solid fa-train'></i> HARUKA 直達",
+                items: [
+                    {
+                        time: "11:00 - 14:00",
+                        title: "關西國際機場 (KIX)",
+                        desc: "班機抵達、辦理入境與領取行李。",
+                        tag: "交通",
+                        tagColor: "bg-gray-700 text-gray-200",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport"
+                    },
+                    {
+                        time: "14:30 - 15:50",
+                        title: "JR 特急 HARUKA 移防京都",
+                        desc: "搭乘特急直達京都車站 (約 80 分鐘)。",
+                        tag: "交通",
+                        tagColor: "bg-gray-700 text-gray-200",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kyoto+Station"
+                    },
+                    {
+                        time: "16:30 - 17:30",
+                        title: "#21 Japanese Taste Kyoto",
+                        desc: "考察重點：健康與跨品類選品、關西茶文化零售整合動線。",
+                        tag: "零售動線",
+                        tagColor: "bg-blue-900/60 text-blue-300 border border-blue-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Japanese+Taste+Kyoto"
+                    },
+                    {
+                        time: "17:30 - 18:30",
+                        title: "#20 Kyoto Tower Sando 1F",
+                        desc: "考察重點：伴手禮視覺包裝設計、效期與品質保存技術採樣。",
+                        tag: "包材器具",
+                        tagColor: "bg-purple-900/60 text-purple-300 border border-purple-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Sando"
+                    },
+                    {
+                        time: "18:30 - 20:00",
+                        title: "#13 TEA AND BAR (The Thousand Kyoto)",
+                        desc: "考察重點：現代茶會空間設計、高端茶調酒與餐茶搭配標桿。",
+                        tag: "感官品評",
+                        tagColor: "bg-emerald-900/60 text-emerald-300 border border-emerald-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=TEA+AND+BAR+The+Thousand+Kyoto"
+                    }
+                ]
+            },
+            2: {
+                title: "DAY 2 和束町產茶區深度考察",
+                subtitle: "京都 ➔ 和束町茶園 ➔ 碾茶廠盲測 ➔ 祇園夜茶",
+                trans: "<i class='fa-solid fa-van-shuttle'></i> 專屬包車",
+                items: [
+                    {
+                        time: "09:30 - 13:30",
+                        title: "#58 d:matcha Kyoto (和束町)",
+                        desc: "考察重點：茶園巡禮、碾茶廠參觀、品種盲測與商務專班對談（含特色茶餐 4小時）。",
+                        tag: "B2B產線",
+                        tagColor: "bg-amber-900/60 text-amber-300 border border-amber-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=d:matcha+Kyoto"
+                    },
+                    {
+                        time: "13:45 - 16:30",
+                        title: "#59 Kyoto Obubu Tea Farms",
+                        desc: "考察重點：製茶廠潔淨申報、碾茶/茶梗/抹茶循環經濟比較 (13:15/13:45場次)。",
+                        tag: "NPD研發",
+                        tagColor: "bg-teal-900/60 text-teal-300 border border-teal-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kyoto+Obubu+Tea+Farms"
+                    },
+                    {
+                        time: "18:00 - 20:00",
+                        title: "晚宴感官體驗 (二選一)",
+                        desc: "選項A：#19 らーめん錦翠 (抹茶鯛出汁拉麵)\n選項B：#08 祇園 北川半兵衛 (茶問屋夜咖啡/茶酒配甜點)。",
+                        tag: "感官品評",
+                        tagColor: "bg-emerald-900/60 text-emerald-300 border border-emerald-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Gion+Kitagawa+Hanbei"
+                    }
+                ]
+            },
+            3: {
+                title: "DAY 3 宇治北側產線與 B2B 原料考察",
+                subtitle: "丸久小山園廠區 ➔ 伊藤久右衛門 ➔ 森半藏咖啡",
+                trans: "<i class='fa-solid fa-van-shuttle'></i> 專屬包車",
+                items: [
+                    {
+                        time: "10:00 - 11:30",
+                        title: "#22 丸久小山園 槇島工場",
+                        desc: "考察重點：現代化抹茶加工見學、審茶空間與品飲 (約90分鐘)。\n*備案：#23 福壽園宇治茶工房。",
+                        tag: "B2B產線",
+                        tagColor: "bg-amber-900/60 text-amber-300 border border-amber-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Marukyu+Koyamaen+Makishima+Factory"
+                    },
+                    {
+                        time: "12:00 - 13:30",
+                        title: "午餐：#38 伊藤久右衛門 本店",
+                        desc: "考察重點：抹茶咖哩烏龍鹹食測試、全品類伴手禮 SKU 拆解。",
+                        tag: "NPD研發",
+                        tagColor: "bg-teal-900/60 text-teal-300 border border-teal-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Ito+Kyuemon+Uji+Main+Store"
+                    },
+                    {
+                        time: "13:45 - 15:15",
+                        title: "#33 森半 TEA SQUARE (MORIHAN)",
+                        desc: "考察重點：B2B 原料大廠轉 B2C 藏咖啡、即溶與烘焙粉末規格考察。",
+                        tag: "B2B產線",
+                        tagColor: "bg-amber-900/60 text-amber-300 border border-amber-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=MORIHAN+TEA+SQUARE"
+                    },
+                    {
+                        time: "15:30 - 17:00",
+                        title: "#27 茶づな + #43 Museum Shop",
+                        desc: "考察重點：產地互動展示轉零售動線與體驗規劃。",
+                        tag: "零售動線",
+                        tagColor: "bg-blue-900/60 text-blue-300 border border-blue-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Chazuna+Uji"
+                    }
+                ]
+            },
+            4: {
+                title: "DAY 4 宇治核心區風味與盲測研發",
+                subtitle: "堀井七茗園 ➔ 茶香服5種盲測 ➔ 墨水瓶容器考量",
+                trans: "<i class='fa-solid fa-van-shuttle'></i> 專屬包車",
+                items: [
+                    {
+                        time: "09:30 - 11:00",
+                        title: "#31 堀井七茗園",
+                        desc: "考察重點：奧之山茶園觀察、單一品種與合組商務交流。",
+                        tag: "B2B產線",
+                        tagColor: "bg-amber-900/60 text-amber-300 border border-amber-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Horii+Shichimeien"
+                    },
+                    {
+                        time: "11:00 - 12:00",
+                        title: "#34 matcha roastery",
+                        desc: "考察重點：碾茶淺中深焙煎技術、專用搖杯 UX 沖煮設計。",
+                        tag: "NPD研發",
+                        tagColor: "bg-teal-900/60 text-teal-300 border border-teal-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=matcha+roastery+Uji"
+                    },
+                    {
+                        time: "12:15 - 13:45",
+                        title: "午餐：#28 辰巳屋 或 #29 和夢茶",
+                        desc: "選項A：#28 辰巳屋 (高級抹茶懷石套餐)\n選項B：#29 和夢茶Cafe (麻婆抹茶豆腐創意料理)。",
+                        tag: "感官品評",
+                        tagColor: "bg-emerald-900/60 text-emerald-300 border border-emerald-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Tatsumiya+Uji"
+                    },
+                    {
+                        time: "14:00 - 15:30",
+                        title: "#25 宇治茶道場 匠の館",
+                        desc: "考察重點：預約包場「茶香服」5種3煎盲測品評專業測試。",
+                        tag: "感官品評",
+                        tagColor: "bg-emerald-900/60 text-emerald-300 border border-emerald-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Takumi-no-yakata+Uji"
+                    },
+                    {
+                        time: "15:30 - 16:30",
+                        title: "#42 MATCHA REPUBLIC",
+                        desc: "考察重點：墨水瓶容器設計、青年客層包裝視覺考察。",
+                        tag: "包材器具",
+                        tagColor: "bg-purple-900/60 text-purple-300 border border-purple-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Matcha+Republic+Uji"
+                    },
+                    {
+                        time: "16:45 - 17:45",
+                        title: "#14 西村番茶屋 GELATO FACTORY",
+                        desc: "考察重點：伏見稻荷站旁，多茶種低溫乳脂測試與冰品開發。",
+                        tag: "NPD研發",
+                        tagColor: "bg-teal-900/60 text-teal-300 border border-teal-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Nishimura+Banchaya+Gelato"
+                    }
+                ]
+            },
+            5: {
+                title: "DAY 5 B2C 終端變現與包材採購",
+                subtitle: "京都旗艦店 ➔ 包車移防大阪 ➔ 天六包材採購",
+                trans: "<i class='fa-solid fa-van-shuttle'></i> 包車至大阪",
+                items: [
+                    {
+                        time: "09:30 - 11:00",
+                        title: "#02 丸久小山園 西洞院店 元庵",
+                        desc: "考察重點：對照 Day 3 槇島工場之 B2C 終端變現與茶房服務體驗。",
+                        tag: "零售動線",
+                        tagColor: "bg-blue-900/60 text-blue-300 border border-blue-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Marukyu+Koyamaen+Nishidotoin"
+                    },
+                    {
+                        time: "11:15 - 12:30",
+                        title: "#16 Nanaya 京都三條店",
+                        desc: "考察重點：丸七製茶 1-7 級濃度 Gelato 與巧克力試吃對比。",
+                        tag: "NPD研發",
+                        tagColor: "bg-teal-900/60 text-teal-300 border border-teal-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Nanaya+Kyoto+Sanjo"
+                    },
+                    {
+                        time: "14:00 - 15:30",
+                        title: "#03 福壽園 京都本店",
+                        desc: "考察重點：多樓層旗艦店與宇治茶客製化服務體驗。",
+                        tag: "零售動線",
+                        tagColor: "bg-blue-900/60 text-blue-300 border border-blue-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Fukujuen+Kyoto+Flagship"
+                    },
+                    {
+                        time: "17:00 - 18:30",
+                        title: "#61 シモジマ 天六店 (Package Plaza)",
+                        desc: "考察重點：食品保鮮包材、客製化印字打樣詢價與商業包裝採購。",
+                        tag: "包材器具",
+                        tagColor: "bg-purple-900/60 text-purple-300 border border-purple-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Shimojima+Package+Plaza+Tenroku"
+                    }
+                ]
+            },
+            6: {
+                title: "DAY 6 商用器具採購與搭機返台",
+                subtitle: "道具屋筋採購 ➔ 南海 Rapi:t 特急 ➔ 關西機場",
+                trans: "<i class='fa-solid fa-train-subway'></i> 南海電鐵",
+                items: [
+                    {
+                        time: "09:30 - 11:30",
+                        title: "#60 千日前道具屋筋商店街",
+                        desc: "考察重點：商用茶具、吧檯設備、展示器具採購與廠商對接。",
+                        tag: "包材器具",
+                        tagColor: "bg-purple-900/60 text-purple-300 border border-purple-700/50",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Sennichimae+Doguyasuji+Shopping+Street"
+                    },
+                    {
+                        time: "13:30 - 14:15",
+                        title: "南海難波站 ➔ 關西機場",
+                        desc: "搭乘南海電鐵 Rapi:t 特急直達關西機場 (車程約 38 分鐘)。",
+                        tag: "交通",
+                        tagColor: "bg-gray-700 text-gray-200",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Namba+Station"
+                    },
+                    {
+                        time: "14:30 - 17:00",
+                        title: "關西國際機場 (KIX) 辦理登機",
+                        desc: "免稅店採購、辦理登機手續並搭機返回台北。",
+                        tag: "交通",
+                        tagColor: "bg-gray-700 text-gray-200",
+                        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport"
+                    }
+                ]
+            }
+        };
+
+        let currentDay = 1;
+        let currentFilter = 'ALL';
+
+        // Render Day Timeline
+        function renderDay(day) {
+            currentDay = day;
+            const data = itineraryData[day];
+
+            // Update Day Buttons UI
+            document.querySelectorAll('.day-btn').forEach((btn, idx) => {
+                if (idx + 1 === day) {
+                    btn.className = "day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-gold-500 text-matcha-900 shadow-md";
+                } else {
+                    btn.className = "day-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold flex flex-col items-center bg-matcha-800 text-matcha-100 border border-matcha-700 opacity-80";
+                }
+            });
+
+            // Update Header Banner
+            document.getElementById('day-title').innerHTML = data.title;
+            document.getElementById('day-subtitle').innerText = data.subtitle;
+            document.getElementById('day-trans-badge').innerHTML = data.trans;
+
+            // Render Timeline Cards
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = '';
+
+            data.items.forEach(item => {
+                // Filter Logic
+                if (currentFilter !== 'ALL' && !item.tag.includes(currentFilter)) {
+                    return;
+                }
+
+                const card = document.createElement('div');
+                card.className = "relative pl-8 pr-1";
+                card.innerHTML = `
+                    <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-gold-500 border-2 border-matcha-900 z-10 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 rounded-full bg-matcha-900"></div>
+                    </div>
+                    <div class="bg-matcha-800/80 border border-matcha-700/80 rounded-2xl p-3.5 space-y-2 shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-gold-400/90 font-mono"><i class="fa-regular fa-clock mr-1"></i>${item.time}</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-md ${item.tagColor}">${item.tag}</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-matcha-50 leading-snug">${item.title}</h3>
+                        <p class="text-xs text-matcha-100/75 leading-relaxed whitespace-pre-line">${item.desc}</p>
+                        <div class="pt-2 flex justify-end">
+                            <a href="${item.mapUrl}" target="_blank" class="px-3 py-1 bg-gold-500 text-matcha-900 hover:bg-gold-400 transition-colors rounded-xl text-xs font-bold flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-diamond-turn-right"></i> Google Maps 導航
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            if (container.children.length === 0) {
+                container.innerHTML = `<div class="text-center text-xs text-matcha-100/50 py-8">此篩選條件下無相關行程</div>`;
+            }
+        }
+
+        function switchDay(day) {
+            renderDay(day);
+        }
+
+        function filterTags(tag) {
+            currentFilter = tag;
+            document.querySelectorAll('.tag-btn').forEach(btn => {
+                if (btn.innerText.includes(tag) || (tag === 'ALL' && btn.innerText.includes('全部'))) {
+                    btn.className = "tag-btn bg-gold-500/20 text-gold-400 border border-gold-500/40 px-2.5 py-0.5 rounded-full font-medium";
+                } else {
+                    btn.className = "tag-btn bg-matcha-800 text-matcha-100/70 border border-matcha-700 px-2.5 py-0.5 rounded-full";
+                }
+            });
+            renderDay(currentDay);
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            // Update Bottom Nav Styling
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = "nav-btn flex flex-col items-center justify-center space-y-1 text-matcha-100/60 hover:text-matcha-100";
+            });
+            document.getElementById(`nav-${tabId}`).className = "nav-btn flex flex-col items-center justify-center space-y-1 text-gold-400 font-semibold";
+        }
+
+        // Checklist Counter Logic
+        function updateChecklist() {
+            const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            document.getElementById('checklist-progress').innerText = `${checkedCount}/${checkboxes.length} 完成`;
+        }
+
+        // Initialize App
+        window.onload = function() {
+            renderDay(1);
+        };
+    </script>
+</body>
+</html>
